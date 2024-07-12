@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-const myFirstElement = <h1>Hello React!Nothing</h1>
+import './index.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar';
+import Register from './components/Register';
+import Home from './components/home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(myFirstElement);
-
+root.render(
+  <Router>
+    <Navbar />
+    <h1>Web App</h1>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<h1>Login</h1>} />
+      <Route path="/logout" element={<h1>Logout</h1>} />
+    </Routes>
+  </Router>
+);
